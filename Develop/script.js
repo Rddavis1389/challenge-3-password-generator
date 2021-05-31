@@ -3,14 +3,13 @@ var alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "0123456789";
 var symbols = "!@#$%^&*_-+=";
 
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
 var passwordTxt = document.getElementById("password");
 var length = document.getElementById("length");
 var incNumbers = document.getElementById("numbers");
 var incSymbols = document.getElementById("symbols");
 var generateBtn = document.getElementById("generate");
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
@@ -18,6 +17,16 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+  var generatePassword = (length, characters) => {
+    let password = "";
+    for (let i = 0; i < length; i++) {
+      password += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }
+    return password;
+  };
 
 }
 
